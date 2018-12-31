@@ -1,5 +1,7 @@
 import React , { Component } from 'react';
 import Timer from './Timer';
+import {Nav,Navbar,NavItem} from 'react-bootstrap';
+
 
 
 
@@ -25,13 +27,58 @@ class ExamPortal extends Component {
               <label><input type="radio" name="answer3" value="no" onChange={this.answerSelected} />no</label>
               <label><input type="radio" name="answer3" value="maybe" onChange={this.answerSelected} />maybe</label>
             </div>
+            <div className="card">
+              <label>Is online learning helpful:  </label> <br />
+              <label><input type="radio" name="answer3" value="yes" onChange={this.answerSelected} />yes</label>
+              <label><input type="radio" name="answer3" value="no" onChange={this.answerSelected} />no</label>
+              <label><input type="radio" name="answer3" value="maybe" onChange={this.answerSelected} />maybe</label>
+            </div>
+            <div className="card">
+              <label>Is online learning helpful:  </label> <br />
+              <label><input type="radio" name="answer3" value="yes" onChange={this.answerSelected} />yes</label>
+              <label><input type="radio" name="answer3" value="no" onChange={this.answerSelected} />no</label>
+              <label><input type="radio" name="answer3" value="maybe" onChange={this.answerSelected} />maybe</label>
+            </div>
+            <div className="card">
+              <label>Is online learning helpful:  </label> <br />
+              <label><input type="radio" name="answer3" value="yes" onChange={this.answerSelected} />yes</label>
+              <label><input type="radio" name="answer3" value="no" onChange={this.answerSelected} />no</label>
+              <label><input type="radio" name="answer3" value="maybe" onChange={this.answerSelected} />maybe</label>
+            </div>
+            <div className="card">
+              <label>Is online learning helpful:  </label> <br />
+              <label><input type="radio" name="answer3" value="yes" onChange={this.answerSelected} />yes</label>
+              <label><input type="radio" name="answer3" value="no" onChange={this.answerSelected} />no</label>
+              <label><input type="radio" name="answer3" value="maybe" onChange={this.answerSelected} />maybe</label>
+            </div>
+            <div className="card">
+              <label>Is online learning helpful:  </label> <br />
+              <label><input type="radio" name="answer3" value="yes" onChange={this.answerSelected} />yes</label>
+              <label><input type="radio" name="answer3" value="no" onChange={this.answerSelected} />no</label>
+              <label><input type="radio" name="answer3" value="maybe" onChange={this.answerSelected} />maybe</label>
+            </div>
+            <div className="card">
+              <label>Is online learning helpful:  </label> <br />
+              <label><input type="radio" name="answer3" value="yes" onChange={this.answerSelected} />yes</label>
+              <label><input type="radio" name="answer3" value="no" onChange={this.answerSelected} />no</label>
+              <label><input type="radio" name="answer3" value="maybe" onChange={this.answerSelected} />maybe</label>
+            </div>
+            <div className="card">
+              <label>Is online learning helpful:  </label> <br />
+              <label><input type="radio" name="answer3" value="yes" onChange={this.answerSelected} />yes</label>
+              <label><input type="radio" name="answer3" value="no" onChange={this.answerSelected} />no</label>
+              <label><input type="radio" name="answer3" value="maybe" onChange={this.answerSelected} />maybe</label>
+            </div>
             <input className="feedback-button" type="submit" value="submit" />
           </form>
         </div>
     return(
       <div className="head">
 
-        <h1>Welcome to Exam Portal.  <Timer start={Date.now()}  /> </h1><br />
+        <h1>Welcome to Exam Portal</h1>
+
+          <Timer start={Date.now()}  /> <br /> <br />
+
 
 
         {questions}

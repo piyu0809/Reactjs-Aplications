@@ -115,7 +115,7 @@ logout(){
 
     }
     else{
-      gitty = "Login to start your examination ";
+      gitty = "Login to start your examination. Remember that the timer starts as soon as you logIn ";
     }
 
     return (

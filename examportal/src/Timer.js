@@ -1,4 +1,6 @@
 import React , { Component } from 'react';
+import timer from './timer.gif';
+
 
 class Timer extends Component {
 
@@ -22,7 +24,8 @@ class Timer extends Component {
     return(
 
       <div>
-        <time> {clock} Minutes left </time>
+        <time><img src={timer} className="timer" /> {clock}
+              Minutes left. </time>
 
       </div>
     );

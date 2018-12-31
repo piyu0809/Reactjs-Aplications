@@ -35,6 +35,7 @@ class Header extends Component {
       <Navbar.Header>
         <Navbar.Brand>
           <img src={logo} className="App-logo" alt="logo" />
+
         </Navbar.Brand>
       </Navbar.Header>
       <Nav>
