@@ -1,0 +1,108 @@
+
+
+body {
+  background-color: #ccc;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("poke.jpg");
+}
+
+.page {
+  position: relative;
+  text-align: center;
+}
+
+.page__search {
+  padding-top: 30px;
+
+}
+.searchbox{
+  width: 350px;
+   height: 50px;
+   font-size: 20px;
+   font-style: italic;
+   border: 0;
+   padding: .85rem .9375rem .9375rem;
+   background: lightblue;
+   text-align: center;
+   box-sizing: border-box;
+   outline: thick ridge pink;
+
+}
+
+.page__error {
+  position: absolute;
+  padding: 5px;
+  color: #fff;
+  background-color: #f44336;
+}
+
+.pokemons {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: none;
+}
+
+.pokemons__item {
+  display: inline-flex;
+  margin: 10px;
+  border: none;
+}
+
+.pokemon {
+  position: relative;
+  z-index: 20000;
+  overflow: visible;
+  background-color: #eee;
+  cursor: pointer;
+  border: none;
+}
+.pokemon__sprite:hover {
+  transform: scale(2.6); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.pokemon__sprite {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  border: none;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+}
+
+.pokemon,
+.pokemon__sprite {
+  width: 140px;
+  height: 140px;
+  border: none;
+}
+
+.pokemon__name {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+  pointer-events: none;
+}
+
+@media (min-width: 992px) {
+  .pokemon,
+  .pokemon__sprite {
+    width: 160px;
+    height: 160px;
+    border: none;
+  }
+}
