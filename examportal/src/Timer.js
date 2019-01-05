@@ -21,6 +21,7 @@ class Timer extends Component {
   render(){
     var clock = Math.round((((3600 - Math.round(this.state.clock / 1000))/3600)*60));
 
+
     return(
 
       <div>
