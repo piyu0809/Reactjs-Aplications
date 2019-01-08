@@ -35,11 +35,21 @@ class App extends Component {
 
   }
   render() {
+
+
+
+
+
     return (
       <div className="App">
+        <div className="head">
         <header className="App-header">
-          {this.state.err}
+          JSX COMPILER
         </header>
+        <h1>
+          {this.state.err}
+        </h1>
+      </div>
           <div className="Container">
             <textarea onChange={this.update.bind(this)}
               defaultValue= {this.state.input} />
