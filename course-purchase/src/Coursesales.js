@@ -19,7 +19,7 @@ class Coursesales  extends Component {
   render(){
       console.log(this.props.items);
       var courses = this.props.items.map((item) => {
-        return <Course name = {item.name} price = {item.price} sumPrice = {this.sumPrice} active = {item.active} />
+        return <Course name = {item.name} price = {item.price} Instructor = {item.Instructor} sumPrice = {this.sumPrice} active = {item.active} />
 
       });
 

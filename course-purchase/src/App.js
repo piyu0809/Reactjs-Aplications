@@ -6,12 +6,19 @@ import Coursesales from './Coursesales';
 class App extends Component {
   render() {
     var courses = [
-      {name:'Complete Web Development',price:199},
-      {name:'Complete Javascript',price:299},
-      {name:'Python Development',price:99},
-      {name:'Complete Front End',price:899},
-      {name:'React Basics',price:99},
-      {name:'Complete Data Structures ',price:199}
+      {name:'Complete Web Development Instructor:Hites Chaudhary', price:199, },
+      {name:'Complete Javascript', price:299, Instructor: 'Hites Chaudhary'},
+      {name:'Python Development', price:99, Instructor: 'Hites Chaudhary'},
+      {name:'Complete Front End', price:899, Instructor: 'Hites Chaudhary'},
+      {name:'React Basics', price:99, Instructor: 'Hites Chaudhary'},
+      {name:'Complete Data Structures ', price:199, Instructor: 'Hites Chaudhary'},
+      {name:'Complete Data Structures ', price:199, Instructor: 'Hites Chaudhary'},
+      {name:'Complete Data Structures ', price:199, Instructor: 'Hites Chaudhary'},
+      {name:'Complete Data Structures ', price:199, Instructor: 'Hites Chaudhary'},
+      {name:'Complete Data Structures ', price:199, Instructor: 'Hites Chaudhary'},
+      {name:'Complete Data Structures ', price:199, Instructor: 'Hites Chaudhary'}
+
+
 ]
     return (
       <div className="App">
