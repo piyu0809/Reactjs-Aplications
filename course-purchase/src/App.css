@@ -7,15 +7,17 @@ body{
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 70px;
 }
 
 .App-header {
-  background-color: #222;
-  font-size: 28px;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  background-image: url("abc.jpg");
+
+  font-size: 39px;
+  height: 130px;
+  padding: 50px;
+  color: black;
+  font-weight: bolder;
 }
 
 .App-intro {
@@ -49,6 +51,10 @@ h1{
     cursor: pointer;
 
     transition: 0.3s;
+}
+mark{
+  background-color: #82ccdd;
+  color: black;
 }
 
 #courses p b{

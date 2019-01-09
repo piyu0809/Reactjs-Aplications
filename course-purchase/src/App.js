@@ -25,7 +25,9 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
+            <mark>
             Welcome to Course-Sales page.
+          </mark>
           </p>
         </header>
         <p>

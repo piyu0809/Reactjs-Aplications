@@ -26,7 +26,9 @@ class Coursesales  extends Component {
     return(
       <div>
         <h1>
+          <mark>
           Courses for you to buy.
+          </mark>
         </h1>
         <div id="courses">
           {courses}
@@ -57,7 +59,7 @@ class Course  extends Component {
     return(
       <div>
         <p id ="demo"
-          onClick={this.clicker}>  {this.props.name} <br /> Instructor: {this.props.Instructor} <b> {this.props.price}</b> </p>
+          onClick={this.clicker}>  <font size = "5">{this.props.name}</font> <br /> Instructor: <i>{this.props.Instructor}</i> <b> {this.props.price}</b> </p>
 
       </div>
     );
