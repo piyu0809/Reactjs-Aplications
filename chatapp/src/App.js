@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Chatkit from '@pusher/chatkit';
 import Messagelist from './components/Messagelist';
@@ -13,6 +12,18 @@ import { tokenUrl, instanceLocator } from './config';
 class App extends Component {
 
 
+constructor(props){
+  super(props);
+
+  this.state = {
+    messages : [],
+    joinableRooms: [],
+    joinedRooms: []
+
+  };
+  this.sendMessage = this.sendMessage.bind(this);
+}
+
   componentDidMount() {
      const chatManager = new Chatkit.ChatManager({
          instanceLocator,
@@ -24,22 +35,57 @@ class App extends Component {
 
      chatManager.connect()
      .then(currentUser => {
-         currentUser.subscribeToRoom({
-             roomId: 19642928, 
+        this.currentUser = currentUser
+         this.currentUser.subscribeToRoom({
+             roomId: 19642928,
              hooks: {
                  onNewMessage: message => {
-                     console.log('message.text: ', message.text);
+                    this.setState({
+                      messages: [...this.state.messages, message]
+                    })
                  }
              }
          })
+
+         this.currentUser.getJoinableRooms()
+         .then(joinableRooms => {
+
+
+
+           this.setState({
+             joinableRooms,
+             joinedRooms: this.currentUser.rooms
+           })
+
+
+
+
+         })
+         .catch( err => console.log("error getting joinable rooms", err));
+
+
+
+
+
+
      })
+ }
+
+ sendMessage(text){
+
+this.currentUser.sendMessage({
+  text,
+  roomId: 19642928
+})
+
+
  }
   render() {
     return (
-      <div className="App">
-        <Roomlist />
-        <Messagelist />
-        <SendmessageForm />
+      <div className="app">
+        <Roomlist rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]}/>
+        <Messagelist message={this.state.messages} />
+        <SendmessageForm sendMessage = {this.sendMessage}/>
         <NewroomForm />
 
       </div>
