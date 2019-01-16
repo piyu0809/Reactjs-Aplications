@@ -18,10 +18,15 @@ constructor(props){
   this.state = {
     messages : [],
     joinableRooms: [],
-    joinedRooms: []
+    joinedRooms: [],
+    roomId: null
 
   };
   this.sendMessage = this.sendMessage.bind(this);
+  this.subscribeToRooms = this.subscribeToRooms.bind(this);
+  this.getRooms = this.getRooms.bind(this)
+
+
 }
 
   componentDidMount() {
@@ -36,46 +41,55 @@ constructor(props){
      chatManager.connect()
      .then(currentUser => {
         this.currentUser = currentUser
-         this.currentUser.subscribeToRoom({
-             roomId: 19642928,
-             hooks: {
-                 onNewMessage: message => {
-                    this.setState({
-                      messages: [...this.state.messages, message]
-                    })
-                 }
-             }
-         })
-
-         this.currentUser.getJoinableRooms()
-         .then(joinableRooms => {
+        this.getRooms()
 
 
-
-           this.setState({
-             joinableRooms,
-             joinedRooms: this.currentUser.rooms
-           })
-
-
-
-
-         })
-         .catch( err => console.log("error getting joinable rooms", err));
-
-
-
-
-
-
-     })
+       })
  }
 
+
+
+
+
+
+subscribeToRooms(roomId){
+this.setState({
+  messages: []
+})
+this.currentUser.subscribeToRoom({
+      roomId: roomId,
+      hooks: {
+          onNewMessage: message => {
+             this.setState({
+               messages: [...this.state.messages, message]
+             })
+          }
+      }
+  })
+  .then(room => {
+    this.setState({
+      roomId: room.id
+    })
+    this.getRooms()
+  })
+
+
+}
+getRooms(){
+  this.currentUser.getJoinableRooms()
+   .then(joinableRooms => {
+     this.setState({
+       joinableRooms,
+       joinedRooms: this.currentUser.rooms
+     })
+   })
+   .catch( err => console.log("error getting joinable rooms", err));
+}
  sendMessage(text){
 
 this.currentUser.sendMessage({
   text,
-  roomId: 19642928
+  roomId: this.state.roomId
 })
 
 
@@ -83,7 +97,9 @@ this.currentUser.sendMessage({
   render() {
     return (
       <div className="app">
-        <Roomlist rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]}/>
+        <Roomlist
+          subscribeToRooms = {this.subscribeToRooms}
+          rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]}/>
         <Messagelist message={this.state.messages} />
         <SendmessageForm sendMessage = {this.sendMessage}/>
         <NewroomForm />
