@@ -41,6 +41,7 @@ this.setState({
           onSubmit = {this.handleSubmit}>
           <input
             type="text"
+            disabled={this.props.disabled}
             onChange = {this.handleChange}
             value={this.state.message}
             placeholder = "Enter your text and hit enter!" />

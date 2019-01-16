@@ -24,9 +24,8 @@ constructor(props){
   };
   this.sendMessage = this.sendMessage.bind(this);
   this.subscribeToRooms = this.subscribeToRooms.bind(this);
-  this.getRooms = this.getRooms.bind(this)
-
-
+  this.getRooms = this.getRooms.bind(this);
+  this.createRoom = this.createRoom.bind(this)
 }
 
   componentDidMount() {
@@ -42,15 +41,8 @@ constructor(props){
      .then(currentUser => {
         this.currentUser = currentUser
         this.getRooms()
-
-
-       })
+      })
  }
-
-
-
-
-
 
 subscribeToRooms(roomId){
 this.setState({
@@ -72,9 +64,8 @@ this.currentUser.subscribeToRoom({
     })
     this.getRooms()
   })
-
-
 }
+
 getRooms(){
   this.currentUser.getJoinableRooms()
    .then(joinableRooms => {
@@ -85,25 +76,37 @@ getRooms(){
    })
    .catch( err => console.log("error getting joinable rooms", err));
 }
+
  sendMessage(text){
-
-this.currentUser.sendMessage({
-  text,
-  roomId: this.state.roomId
-})
-
-
+   this.currentUser.sendMessage({
+     text,
+     roomId: this.state.roomId
+   })
  }
+
+ createRoom(name){
+   this.currentUser.createRoom({
+     name
+   })
+   .then(room => this.subscribeToRooms(room.id))
+   .catch(err => console.log("Error Creating room", err))
+ }
+
   render() {
     return (
       <div className="app">
         <Roomlist
+          roomId = {this.state.roomId}
           subscribeToRooms = {this.subscribeToRooms}
           rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]}/>
-        <Messagelist message={this.state.messages} />
-        <SendmessageForm sendMessage = {this.sendMessage}/>
-        <NewroomForm />
-
+        <Messagelist
+          roomId = {this.state.roomId}
+          message={this.state.messages} />
+        <SendmessageForm
+          disabled = {!this.state.roomId}
+          sendMessage = {this.sendMessage}/>
+        <NewroomForm
+          createRoom = {this.createRoom} />
       </div>
     );
   }
