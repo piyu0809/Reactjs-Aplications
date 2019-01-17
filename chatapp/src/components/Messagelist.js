@@ -32,12 +32,13 @@ class Messagelist extends Component {
                )
              }
     return(
-      <div className = "Messagelist">
+      <div className = "message-list">
         { this.props.message.map((message,index) => {
-          return (
+          const user = this.props.userId === message.senderId ? "me":message.senderId;
+          return(
             <div key={index} className="message">
-              <div className="message-username">{message.senderId}</div>
-              <div className="message-text">{message.text}</div>
+            <div className="message-username">{user}</div>
+            <div className="message-text">{message.text}</div>
             </div>
           )
         })

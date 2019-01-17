@@ -1,6 +1,6 @@
 :root {
-    --main-color: #5ea3d0;
-    --secondary-color: white;
+    --main-color: #B53471;
+    --secondary-color: #bdc3c7;
     --main-text-color: #3e5869;
     --secondary-text-color: #b0c7d6;
     --send-message-form: #F5F5F5;
@@ -11,7 +11,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: system-ui;
-    font-weight: 200;
+    font-weight: 500;
     color: 	#3e5869;
 }
 
@@ -68,20 +68,24 @@ html, body {
     margin: 10px 0;
 }
 
-.rooms-list > h3 {
+.rooms-list h3 {
     margin: 5px 0;
+    font-size: 30px;
     color: var(--secondary-color);
 }
 
 .rooms-list .room a {
     color: var(--secondary-text-color);
-    font-weight: 600;
+    font-weight: 1800;
+    font-size: 26px;
     text-decoration: none;
 
  }
 
-.rooms-list .room.active a {
+.rooms-list .roomactive a {
     color: var(--secondary-color);
+    font-size: 28px;
+
 }
 
 .new-room-form {
@@ -98,8 +102,10 @@ html, body {
 }
 
 .new-room-form input {
-    width: 135px;
+    width: 250px;
     background: var(--secondary-color);
+    font-weight: 800;
+    font-size: 20px;
 }
 
 .new-room-form button {
@@ -110,7 +116,8 @@ html, body {
 
 .new-room-form input::placeholder {
     color: var(--main-text-color);
-    font-weight: 200;
+    font-weight: 100;
+    font-size: 20px;
 }
 
 .new-room-form input:focus {
@@ -130,10 +137,11 @@ html, body {
 }
 
 .message .message-username {
-    font-size: 11px;
+    font-size: 18px;
     color: var(--main-text-color);
     opacity: 0.9;
     margin-bottom: 6px;
+
 }
 .message .message-text {
     background: var(--main-color);
@@ -141,6 +149,7 @@ html, body {
     display: inline;
     padding: 4px 8px;
     border-radius: 8px;
+    font-size: 24px;
 }
 
 .message-list {
@@ -149,6 +158,7 @@ html, body {
     width: 100%;
     height: 100%;
     overflow: scroll;
+
     background: var(--secondary-color);
 }
 
@@ -172,8 +182,8 @@ html, body {
     margin: 0;
     border-style: none;
     background: var(--send-message-form);
-    font-weight: 200;
-
+    font-weight: 600;
+    font-size: 28px;
 }
 
 .send-message-form input:focus {
@@ -182,6 +192,8 @@ html, body {
 
 .send-message-form input::placeholder {
     color: var(--main-text-color);
+    font-weight: 100;
+    font-size: 28px;
 }
 
 .help-text {
