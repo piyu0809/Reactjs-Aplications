@@ -38,7 +38,7 @@ handleSubmit(e){
           <input type = "text"
             value = {this.state.roomName}
             onChange = {this.handleChange}
-            placeholder = "Create new Room Here"
+            placeholder = "Create new groups here"
             required/>
           <button id="create-room-btn" type="submit">+</button>
         </form>
