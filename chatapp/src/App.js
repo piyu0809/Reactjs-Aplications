@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import Chatkit from '@pusher/chatkit';
 import Messagelist from './components/Messagelist';
+import Header from './components/Header';
 import NewroomForm from './components/NewroomForm';
 import Roomlist from './components/Roomlist';
 import SendmessageForm from './components/SendmessageForm';
+import Header1 from './components/Header1';
 
 import { tokenUrl, instanceLocator } from './config';
 
@@ -21,7 +23,8 @@ constructor(props){
     joinedRooms: [],
     roomId: null,
     currentUser: '',
-    userId: ''
+    userId: '',
+    roomName: ''
 
   };
   this.sendMessage = this.sendMessage.bind(this);
@@ -67,7 +70,8 @@ this.state.currentUser.subscribeToRoom({
   })
   .then(room => {
     this.setState({
-      roomId: room.id
+      roomId: room.id,
+      roomName: room.name
     })
     this.getRooms()
   })
@@ -102,6 +106,10 @@ getRooms(){
   render() {
     return (
       <div className="app">
+        <Header1 />
+        <Header
+          roomName = {this.state.roomName}
+           />
         <Roomlist
           roomId = {this.state.roomId}
           subscribeToRooms = {this.subscribeToRooms}

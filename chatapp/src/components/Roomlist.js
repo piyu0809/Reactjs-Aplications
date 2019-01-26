@@ -8,14 +8,14 @@ class Roomlist extends Component {
     return(
       <div className="rooms-list">
         <ul>
-          <h3>Your Rooms</h3>
+          <h3>Groups</h3>
           {orderedRooms.map(room =>
           { const active = this.props.roomId === room.id ? "active":"";
             return(
               <li key={room.id} className = {"room" + active }>
                 <a onClick={() => this.props.subscribeToRooms(room.id)}
                   href="#">
-                  #{room.name}
+                  {room.name}
                 </a>
               </li>
             )

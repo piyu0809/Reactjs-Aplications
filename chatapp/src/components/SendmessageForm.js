@@ -44,7 +44,7 @@ this.setState({
             disabled={this.props.disabled}
             onChange = {this.handleChange}
             value={this.state.message}
-            placeholder = "Enter your text and hit enter!" />
+            placeholder = "Type a message..." />
 
 
         </form>
