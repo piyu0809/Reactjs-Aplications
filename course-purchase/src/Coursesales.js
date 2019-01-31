@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import checkout from './checkout.png';
 
 
 
@@ -30,11 +31,12 @@ class Coursesales  extends Component {
           Courses for you to buy.
           </mark>
         </h1>
-        <div id="courses">
+        <p id="total"> Total <img src={checkout} height="62" width="72" /><b>{this.state.total}</b></p>
+
+        <div id="c1">
           {courses}
-          <p id="total"> Total <b>{this.state.total}</b></p>
         </div>
-    </div>
+        </div>
     );
   }
 }
@@ -58,9 +60,11 @@ class Course  extends Component {
   render(){
     return(
       <div>
+        <div className="c">
         <p id ="demo"
-          onClick={this.clicker}>  <font size = "5">{this.props.name}</font> <br /> Instructor: <i>{this.props.Instructor}</i> <b> {this.props.price}</b> </p>
+          onClick={this.clicker}>  <font size = "5">{this.props.name}</font> <br /> Instructor: <i>{this.props.Instructor}</i> <b> {this.props.price}</b><br />Buy Now </p>
 
+      </div>
       </div>
     );
   }

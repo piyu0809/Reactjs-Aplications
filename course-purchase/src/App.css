@@ -35,14 +35,7 @@ h1{
     color: #273c75;
 }
 
-#courses{
-    list-style: none;
-    display: inline-block;
-    width: 1800px;
-    text-align: left;
-}
-
-#courses p{
+#c1 p{
     display: block;
     padding: 20px 20px;
     background-color: #222;
@@ -57,7 +50,7 @@ mark{
   color: black;
 }
 
-#courses p b{
+#c1 p b{
     position: absolute;
     right: 30px;
     width: 100px;
@@ -65,17 +58,17 @@ mark{
     text-align: right;
 }
 
-#courses p:hover{
+#c1 p:hover{
     background-color:#52B3D9;
     color:#fff;
 }
 
-#courses p.active{
+#c1 p.active{
     color:#fff;
     background-color:#446CB3;
 }
 
-#courses p.active b{
+#c1 p.active b{
     color: #fff;
 }
 
@@ -84,4 +77,15 @@ mark{
     background: #3FC380 !important;
     cursor: default !important;
     padding-top: 10px !important;
+    display: block;
+    height:150px;
+    width:500px;
+    float: right;
+    font-size: 50px;
+}
+#demo{
+  display: block;
+  width:1000px;
+  height:150px;
+  text-align: center;
 }
